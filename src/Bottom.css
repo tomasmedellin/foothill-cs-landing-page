@@ -1,0 +1,31 @@
+/* 
+Bottom (Footer) Styles
+This stylesheet defines the styles for the footer component, including icon placement and appearance.
+*/
+
+.bottom {
+  /* Styling the footer's background and position */
+  width: 100%;
+  background-color: #333; 
+  padding: 20px 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.bottom-icons {
+  /* Styling the container of the icons in the footer */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 20px;
+}
+
+.icon-placeholder {
+  /* Placeholder styles for the icons (or icon texts) */
+  margin-right: 20px;
+  padding: 10px;
+  border: 1px solid #fff;
+  display: inline-block;
+  text-align: center;
+}
