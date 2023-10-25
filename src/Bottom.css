@@ -1,4 +1,13 @@
-/* Styling the footer's background and position */
+/* 
+=========================================
+Bottom (Footer) Styles
+=========================================
+*/
+
+/* 
+Styling the footer's background and position.
+The footer stretches across the full width of its container and is pinned to the bottom.
+*/
 .bottom {
   width: 100%;                  /* Ensures the footer takes the full width of its container */
   background-color: #333;       /* Sets the background color of the footer to a dark grey */
@@ -8,7 +17,10 @@
   left: 0;                      /* Aligns the footer to the left of its container */
 }
 
-/* Styling the container of the icons in the footer */
+/* 
+Styling the container of the icons in the footer.
+The icons are laid out horizontally using flexbox.
+*/
 .bottom-icons {
   display: flex;                /* Uses flexbox to layout the icons horizontally */
   align-items: center;          /* Vertically centers the icons */
@@ -16,9 +28,45 @@
   padding-left: 20px;           /* Adds some padding to the left side of the icon container */
 }
 
-/* Placeholder styles for the icons (or icon texts) */
+/* 
+Placeholder styles for the icons.
+Each icon has a fixed width and height and has some spacing to its right.
+*/
 .icon-placeholder {
   margin-right: 20px;           /* Adds some spacing to the right of each icon */
   width: 32px;                  /* Sets a fixed width for the icons */
   height: 32px;                 /* Sets a fixed height for the icons */
+}
+
+/* 
+Shake Animation Keyframes:
+This animation moves the element left and right in quick succession, producing a shake effect.
+*/
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+/* 
+Applying the shake animation to the icons on hover.
+The animation gives a quick left-right shake to the icons when they are hovered over.
+*/
+.icon-placeholder:hover {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;  /* Ensures a smooth shake effect */
+  perspective: 1000px;          /* Gives a 3D perspective to the shake effect */
 }
