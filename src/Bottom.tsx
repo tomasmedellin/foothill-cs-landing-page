@@ -1,20 +1,26 @@
-// =====================
-// Bottom Component
-// This component renders the footer of the application, containing icon placeholders (or actual icons).
-// =====================
+// ======================
+// Bottom (Footer) Component
+// This component displays the footer section of the landing page.
+// ======================
+
 import React from 'react';
 import './Bottom.css';
 
 const Bottom: React.FC = () => {
-  // Render the footer with icon placeholders (links).
+  // This component returns a div element with the "bottom" class.
+  // The footer contains a div with the "bottom-icons" class which holds the icon links.
   return (
     <div className="bottom">
       <div className="bottom-icons">
-        <a href="https://discord.gg/vkmuQsme4x" target="_blank" rel="noopener noreferrer" className="icon-placeholder">Discord</a>
-        <span className="icon-placeholder">Twitter</span>
+        {/* Discord link */}
+        <a href="https://discord.gg/vkmuQsme4x" target="_blank" rel="noopener noreferrer">
+          {/* Discord image icon */}
+          <img src="https://www.freeiconspng.com/thumbs/discord-icon/silver-discord-token-icon-16.png" alt="Discord Icon" className="icon-placeholder" />
+        </a>
       </div>
     </div>
   );
 };
 
+// Export the Bottom component to be used in other parts of the app.
 export default Bottom;
