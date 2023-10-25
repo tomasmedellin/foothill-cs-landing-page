@@ -2,8 +2,8 @@
 // TypingEffect Component
 // This component creates a typing animation effect for a set of words.
 // =====================
-import React, { useState, useEffect } from 'react';
-import './TypingEffect.css';
+import React, { useState, useEffect } from "react";
+import "./TypingEffect.css";
 
 // List of words to be animated through the typing effect.
 const words = ["students", "hackers", "programmers"];
@@ -24,7 +24,7 @@ const TypingEffect: React.FC = () => {
         setReverse(false);
         setIndex((prevIndex) => (prevIndex + 1) % words.length);
         setSubIndex(0);
-      }, 1000);
+      }, 250 * words[index].length);
       return;
     }
 
@@ -39,7 +39,12 @@ const TypingEffect: React.FC = () => {
   return (
     <div className="typing-effect">
       <h1>Foothill Computer Science Club</h1>
-      <h1>where&nbsp;<span className="typed-text">{words[index].substring(0, subIndex)}</span></h1>
+      <h1>
+        where&nbsp;
+        <span className="typed-text">
+          {words[index].substring(0, subIndex)}
+        </span>
+      </h1>
       <h1>meet up and hang out</h1>
     </div>
   );
