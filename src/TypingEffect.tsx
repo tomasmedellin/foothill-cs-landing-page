@@ -8,16 +8,16 @@ import "./TypingEffect.css";
 // List of words to be animated through the typing effect.
 const words = ["students", "hackers", "programmers"];
 
-const cursors = {"half": "▄", "full": "█"}
+const cursor = "▂"
 
-const cursor_blinks = 2;
+const cursor_blinks = 3;
 
 const TypingEffect: React.FC = () => {
   // State variables for the current word, its substring, and the typing direction.
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
   const [direction, setDirection] = useState(1);
-  const [cursor, setCursor] = useState(cursors["half"]);
+  const [current_cursor, setCursor] = useState(cursor);
 
   useEffect(() => {
     // Logic for the typing effect (typing, pausing, backspacing).
@@ -28,19 +28,19 @@ const TypingEffect: React.FC = () => {
       for (let i = 1; i <= cursor_blinks; i++) {
         setTimeout(() => {
           setCursor(" ");
-        }, (800 * i) - 400)
+        }, (1000 * i) - 500)
         setTimeout(() => {
-          setCursor(cursors["half"]);
-        }, 800 * i)  
+          setCursor(cursor);
+        }, 1000 * i)  
       }
       setTimeout(() => {
         setDirection(-1);
-      }, (800 * cursor_blinks) + 400)
+      }, (1000 * cursor_blinks))
       setTimeout(() => {
         setDirection(1);
         setIndex((prevIndex) => (prevIndex + 1) % words.length);
         setSubIndex(0);
-      }, 225 * (words[index].length) + (800 * cursor_blinks) + 400);
+      }, 225 * (words[index].length) + (1000 * cursor_blinks) + 500);
       return;
     }
 
@@ -50,7 +50,7 @@ const TypingEffect: React.FC = () => {
 
     // Cleanup function to clear the timeout.
     return () => clearTimeout(timeout);
-  }, [subIndex, index, direction, cursor]);
+  }, [subIndex, index, direction, current_cursor]);
 
   return (
     <div className="typing-effect">
@@ -58,7 +58,7 @@ const TypingEffect: React.FC = () => {
       <h1>
         where&nbsp;
         <span className="typed-text">
-          {words[index].substring(0, subIndex) + cursor}
+          {words[index].substring(0, subIndex) + current_cursor}
         </span>
       </h1>
       <h1>meet up and hang out</h1>
