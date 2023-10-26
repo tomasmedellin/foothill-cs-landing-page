@@ -32,13 +32,14 @@ h1 {
   margin: 0.5rem 0;
   display: flex;
   align-items: center;
+  font-family: 'Cascadia Mono', sans-serif;
 }
 
 .typed-text {
   /* Styles specific to the animated typing text */
   display: inline-block;
   width: 380px; /* Adjusted to provide more space for typing */
-  overflow: hidden;
+  overflow: visible; /* changed to visible to prevent low hanging letters, such as g q and p from getting cut off*/
   white-space: nowrap;
   text-align: left;
   margin-right: 10px; /* Adjusted for spacing */
