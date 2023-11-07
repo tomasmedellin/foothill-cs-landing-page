@@ -4,11 +4,25 @@ This stylesheet contains the global styles for the main App component.
 "hey im a humanities major pls keep your expectations low - Tomas"
 */
 
+@font-face {
+  font-family: "Cascadia Mono";
+  font-weight: normal 400;
+  font-style: normal;
+  src: url(./assets/fonts/CascadiaMonoPL-Regular.otf);
+}
+
+@font-face {
+  font-family: "Cascadia Mono";
+  font-weight: bold 700;
+  font-style: normal;
+  src: url(./assets/fonts/CascadiaMonoPL-Bold.otf);
+}
+
 .App {
   /* Setting a full-screen background color */
   background-color: #333;
   height: 100vh; /* Ensures the container takes the full height of the viewport */
-  width: 100vw;  /* Ensures the container takes the full width of the viewport */
+  width: 100vw; /* Ensures the container takes the full width of the viewport */
   display: flex;
   flex-direction: column;
   align-items: center; /* Centers children horizontally */
