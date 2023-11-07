@@ -5,43 +5,72 @@ This stylesheet defines the styles for the typing effect animation and layout.
 
 /* Keyframes for the rainbow color animation of the typed text */
 @keyframes rainbow {
-  0% {color: red;}
-  14% {color: orange;}
-  28% {color: yellow;}
-  42% {color: green;}
-  57% {color: blue;}
-  71% {color: indigo;}
-  85% {color: violet;}
-  100% {color: red;}
+  0% {
+    color: red;
+  }
+  25% {
+    color: orange;
+  }
+  50% {
+    color: yellow;
+  }
+  75% {
+    color: violet;
+  }
+  100% {
+    color: red;
+  }
 }
 
 .typing-effect {
   /* Styling the container of the typing effect */
   color: white;
   text-align: center;
+  font-family: "Cascadia Mono", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0 1rem;
 }
 
-h1 {
+.club-name,
+.tagline {
   /* Common styles for the heading elements */
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin: 0.5rem 0;
   display: flex;
   align-items: center;
-  font-family: 'Cascadia Mono', sans-serif;
+}
+
+.club-name {
+  font-size: 2.5rem;
+}
+
+.tagline {
+  font-weight: normal;
+  margin: 0;
 }
 
 .typed-text {
   /* Styles specific to the animated typing text */
   display: inline-block;
-  width: 380px; /* Adjusted to provide more space for typing */
+  width: 160px; /* Adjusted to provide more space for typing */
   overflow: visible; /* changed to visible to prevent low hanging letters, such as g q and p from getting cut off*/
   white-space: nowrap;
   text-align: left;
   margin-right: 10px; /* Adjusted for spacing */
   animation: rainbow 8s infinite;
+}
+
+@media only screen and (min-width: 980px) {
+  .club-name {
+    font-size: 3.2rem;
+  }
+
+  .tagline {
+    font-size: 2rem;
+  }
+
+  .typed-text {
+    width: 220px;
+  }
 }
