@@ -8,7 +8,7 @@ import "./TypingEffect.css";
 // List of words to be animated through the typing effect.
 const words = ["students", "hackers", "programmers"];
 
-const cursor = "▂"
+const cursor = "▂";
 
 const cursor_blinks = 3;
 
@@ -28,24 +28,24 @@ const TypingEffect: React.FC = () => {
       for (let i = 1; i <= cursor_blinks; i++) {
         setTimeout(() => {
           setCursor(" ");
-        }, (1000 * i) - 500)
+        }, 1000 * i - 500);
         setTimeout(() => {
           setCursor(cursor);
-        }, 1000 * i)  
+        }, 1000 * i);
       }
       setTimeout(() => {
         setDirection(-1);
-      }, (1000 * cursor_blinks))
+      }, 1000 * cursor_blinks);
       setTimeout(() => {
         setDirection(1);
         setIndex((prevIndex) => (prevIndex + 1) % words.length);
         setSubIndex(0);
-      }, 225 * (words[index].length) + (1000 * cursor_blinks) + 500);
+      }, 225 * words[index].length + 1000 * cursor_blinks + 500);
       return;
     }
 
     const timeout = setTimeout(() => {
-      setSubIndex((prevSubIndex) => prevSubIndex + (direction));
+      setSubIndex((prevSubIndex) => prevSubIndex + direction);
     }, 200);
 
     // Cleanup function to clear the timeout.
@@ -54,14 +54,14 @@ const TypingEffect: React.FC = () => {
 
   return (
     <div className="typing-effect">
-      <h1>Foothill Computer Science Club</h1>
-      <h1>
+      <h1 className="club-name">Foothill Computer Science&nbsp;Club</h1>
+      <h2 className="tagline">
         where&nbsp;
         <span className="typed-text">
           {words[index].substring(0, subIndex) + current_cursor}
         </span>
-      </h1>
-      <h1>meet up and hang out</h1>
+      </h2>
+      <h2 className="tagline">meet up and hang out</h2>
     </div>
   );
 };
